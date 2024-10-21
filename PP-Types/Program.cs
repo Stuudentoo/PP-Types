@@ -2,9 +2,9 @@
 
 // Data - do not change it in code!
 string[] names = {
-    "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala", 
-    "Timon", "Pumbaa", "Mufasa", "Ariel", "Flounder", "Sebastian", "Ursula", "Belle", "Beast", "Gaston", 
-    "Cinderella", "Prince Charming", "Aurora", "Maleficent", "Rapunzel", "Flynn Rider", "Elsa", "Anna", 
+    "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala",
+    "Timon", "Pumbaa", "Mufasa", "Ariel", "Flounder", "Sebastian", "Ursula", "Belle", "Beast", "Gaston",
+    "Cinderella", "Prince Charming", "Aurora", "Maleficent", "Rapunzel", "Flynn Rider", "Elsa", "Anna",
     "Olaf", "Moana", "Maui", "Hercules"
 };
 
@@ -15,8 +15,23 @@ string[] names = {
 void PrintGroups(string[] t, int perLine)
 {
 
-    // Write required code.
-
+    int counter = 1;
+    for (int i = 0; i < names.Length; i++, counter++)
+    {
+        if (counter == 1)
+        {
+            Console.Write($"\n{names[i]},");
+        }
+       if (counter>1 && counter<perLine)
+        {
+            Console.Write($" {names[i]}, ");
+        }
+        if (counter == perLine)
+        {
+            counter = 0;
+            Console.Write($"{names[i]}.");
+        }
+    }   
 }
 
 
@@ -27,8 +42,93 @@ void PrintGroups(string[] t, int perLine)
 
 void PrintColumns(string[] t, int perLine, int width)
 {
+    string a = "";
+    int b = 0;
 
-    // Write required code.
+    int counter = 1;
+    for (int i = 0; i < names.Length; i++, counter++)
+    {
+        if (counter == 1)
+        {
+            if (names[i].Length == width)
+            {
+                Console.Write($"\n{names[i]}|");
+            }
+            if ((names[i].Length) > width)
+            {
+                for (b = 0; b < width; b++)
+                {
+                    a += names[i][b];
+                }
+                Console.Write($"\n{a}|");
+                a = "";
+            }
+            if (names[i].Length < width)
+            {
+                a = names[i];
+                for (b = 0; b <= width - names[i].Length - 1; b++)
+                {
+                    a += " ";
+                }
+                Console.Write($"\n{a}|");
+                a = "";
+            }
+        }
+        if (counter > 1 && counter < perLine)
+        {
+            if (names[i].Length == width)
+            {
+                Console.Write($" {names[i]}|");
+            }
+            if ((names[i].Length) > width)
+            {
+                for (b = 0; b < width; b++)
+                {
+                    a += names[i][b];
+                }
+                Console.Write($" {a}|");
+                a = "";
+            }
+            if (names[i].Length < width)
+            {
+                a = names[i];
+                for (b = 0; b <= width - names[i].Length - 1; b++)
+                {
+                    a += " ";
+                }
+                Console.Write($" {a}|");
+                a = "";
+            }
+        }
+
+        if (counter == perLine)
+        {
+            if (names[i].Length == width)
+            {
+                Console.Write($" {names[i]}");
+            }
+            if ((names[i].Length) > width)
+            {
+                for (b = 0; b < width; b++)
+                {
+                    a += names[i][b];
+                }
+                Console.Write($" {a}");
+                a = "";
+            }
+            if (names[i].Length < width)
+            {
+                a = names[i];
+                for (b = 0; b <= width - names[i].Length - 1; b++)
+                {
+                    a += " ";
+                }
+                Console.Write($" {a}");
+                a = "";
+            }
+            counter = 0;
+        }
+    }
 
 }
 
