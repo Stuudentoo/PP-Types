@@ -34,7 +34,7 @@ void PrintGroups(string[] t, int perLine)
     }   
 }
 
-
+/**/
 // Print all array elements in *perLine* columns.
 // Each column must have given *width* (number of chars).
 // Columns should be separated by "| ".
